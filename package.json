@@ -1,0 +1,14 @@
+{
+  "name": "proyecto1",
+  "version": "0.1.0",
+  "description": "compartiendo fotos con la comunidad",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mireya lopez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
