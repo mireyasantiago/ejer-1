@@ -9,14 +9,14 @@ app.use(express.static('public'));
 app.get('/', function(req, res){
   //res.send('hola');
   //.render quiere decir que llamara el punto de vista
-  res.render('index')
+  res.render('index', {title: 'Platzigram'});
 })
 
 app.get('/signup', function(req, res){
-    res.render('index')
+    res.render('index', {title: 'Signup'})
 })
 app.get('/signin', function(req, res){
-    res.render('index')
+    res.render('index', {title: 'Signin'})
 })
 
 app.listen(3000, function(err){
