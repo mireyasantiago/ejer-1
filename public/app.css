@@ -6918,6 +6918,9 @@ body {
 #main-container {
   margin: 30px auto; }
 
+.landing {
+  margin: 30px auto; }
+
 .iphone {
   max-width: 100%; }
 
@@ -6932,8 +6935,44 @@ body {
   padding: 10px 0;
   text-align: center; }
 
-.signup-box .platzigram {
-  font-size: 42px; }
+.header {
+  background-color: white;
+  color: #125688;
+  box-shadow: none;
+  border-bottom: 1px solid #edeeee; }
+
+.timeline {
+  padding: 30px 0; }
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 12px; }
+
+.card small.time {
+  line-height: 40px; }
+
+.card p {
+  padding: 20px 0; }
+
+.card .username {
+  color: #125688; }
+
+.card .likes {
+  line-height: 30px;
+  margin-left: 12px; }
+
+.card i {
+  font-size: 30px; }
+
+.card .fa-heart-o {
+  color: #125688; }
+
+.platzigram {
+  font-size: 42px;
+  font-family: 'Oleo Script'; }
 
 .signup-form {
   width: 65%;

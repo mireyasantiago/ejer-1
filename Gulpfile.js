@@ -7,6 +7,7 @@ var source= require('vinyl-source-stream');
 var watchify= require('watchify');
 
 //vamos a definir una tarea para gulp
+// cada vez que queramos agreagar los estilos desde sass en consola se pone el comando gulp styles
 gulp.task('styles', function(){
   gulp
     .src('index.scss')
@@ -14,14 +15,14 @@ gulp.task('styles', function(){
     .pipe(sass())
     //con rename nos cambiara el nombre del documento de index.css a app.css
     .pipe(rename('app.css'))
-    .pipe(gulp.dest('public'));
+    .pipe(gulp.dest('./public'));
 })
 
 gulp.task('assets', function(){
   gulp
     //se utilizara glob para apuntar a los archivos que estan en la carpeta
     .src('assets/*')
-    .pipe(gulp.dest('public'));
+    .pipe(gulp.dest('./public'));
 
 })
 

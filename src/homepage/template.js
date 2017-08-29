@@ -8,7 +8,7 @@ module.exports= function(pictures){
       <div class="col s12 m10 offset-m1 l6 oofset-l3">
         ${pictures.map(function(pic){
           //map nos devolvera un arreglo
-          return picture;
+          return picture(pic);
         })}
       </div>
     </div>

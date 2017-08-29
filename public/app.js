@@ -2617,7 +2617,23 @@ var title = require('title');
 page('/', function (ctx, next) {
   title('Platzigram');
   var main = document.getElementById('main-container');
-  var pictures = [1, 2, 3, 4, 5];
+  var pictures = [{
+    user: {
+      username: 'imagen1',
+      avatar: 'http://materializecss.com/images/sample-1.jpg'
+    },
+    url: 'http://materializecss.com/images/office.jpg',
+    likes: 1000,
+    liked: true
+  }, {
+    user: {
+      username: 'imagen1',
+      avatar: 'http://materializecss.com/images/sample-1.jpg'
+    },
+    url: 'http://materializecss.com/images/office.jpg',
+    likes: 800,
+    liked: true
+  }];
   empty(main).appendChild(template(pictures));
 });
 
@@ -2635,7 +2651,7 @@ var picture = require('../picture-card');
 module.exports = function (pictures) {
   var el = yo(_templateObject, pictures.map(function (pic) {
     //map nos devolvera un arreglo
-    return picture;
+    return picture(pic);
   }));
 
   return layout(el);
@@ -2718,13 +2734,15 @@ module.exports = function layout(content) {
 },{"yo-yo":15}],22:[function(require,module,exports){
 'use strict';
 
-var _templateObject = _taggedTemplateLiteral(['<div class="card">\n    <div class="card-image">\n      <img class="activator" src="http://materializecss.com/images/office.jpg">\n    </div>\n    <div class="card-content">\n      <span class="card-title">Card Title</span>\n    </div>\n  </div>'], ['<div class="card">\n    <div class="card-image">\n      <img class="activator" src="http://materializecss.com/images/office.jpg">\n    </div>\n    <div class="card-content">\n      <span class="card-title">Card Title</span>\n    </div>\n  </div>']);
+var _templateObject = _taggedTemplateLiteral(['<div class="card">\n    <div class="card-image">\n      <img class="activator" src="', '">\n    </div>\n    <div class="card-content">\n      <a href="/user/', '" class="card-title">\n        <img src="', '" class="avatar"/>\n        <span class="username">', '</span>\n      </a>\n      <small class="right time">Hace 1 dia</small>\n      <p>\n        <a href="#" class="left">\n          <i class="fa fa-heart-o" aria-hidden="true"></i>\n        </a>\n        <span class="left likes">', ' Me gusta</span>\n\n\n      </p>\n\n    </div>\n  </div>'], ['<div class="card">\n    <div class="card-image">\n      <img class="activator" src="', '">\n    </div>\n    <div class="card-content">\n      <a href="/user/', '" class="card-title">\n        <img src="', '" class="avatar"/>\n        <span class="username">', '</span>\n      </a>\n      <small class="right time">Hace 1 dia</small>\n      <p>\n        <a href="#" class="left">\n          <i class="fa fa-heart-o" aria-hidden="true"></i>\n        </a>\n        <span class="left likes">', ' Me gusta</span>\n\n\n      </p>\n\n    </div>\n  </div>']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 var yo = require('yo-yo');
 
-module.exports = yo(_templateObject);
+module.exports = function (pic) {
+  return yo(_templateObject, pic.url, pic.user.username, pic.user.avatar, pic.user.username, pic.likes);
+};
 
 },{"yo-yo":15}],23:[function(require,module,exports){
 'use strict';
