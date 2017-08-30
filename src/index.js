@@ -1,5 +1,11 @@
 //se creara la navegacion de paginas con page.js sin necesidad de recargar
 var page= require('page');
+var moment= require('moment');
+
+//se utilizara la libreria de moment para la fecha actual y cambio de idoma
+require('moment/locale/es');
+//vamos a cetear el local donde se realizra el cambio a español
+moment.locale('es');
 //es importante la organizacion de las carpetas
 require('./homepage');
 require('./signup');

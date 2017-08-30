@@ -25,7 +25,8 @@ page('/', function(ctx, next){
       },
       url:'http://materializecss.com/images/office.jpg',
       likes: 1000,
-      liked: false
+      liked: false,
+      createdAt: new Date()
     },
 
     {
@@ -35,7 +36,8 @@ page('/', function(ctx, next){
       },
       url:'http://materializecss.com/images/office.jpg',
       likes: 800,
-      liked: true
+      liked: true,
+      createdAt: new Date()
     },
   ];
   empty(main).appendChild(template(pictures));
