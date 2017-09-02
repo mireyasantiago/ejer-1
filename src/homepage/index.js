@@ -24,7 +24,7 @@ page('/', function(ctx, next){
         avatar: 'http://materializecss.com/images/sample-1.jpg'
       },
       url:'http://materializecss.com/images/office.jpg',
-      likes: 1000,
+      likes: 0,
       liked: false,
       createdAt: new Date()
     },
@@ -35,7 +35,7 @@ page('/', function(ctx, next){
         avatar: 'http://materializecss.com/images/sample-1.jpg'
       },
       url:'http://materializecss.com/images/office.jpg',
-      likes: 800,
+      likes: 1,
       liked: true,
       createdAt: new Date()
     },

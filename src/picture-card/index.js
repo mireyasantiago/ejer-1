@@ -1,11 +1,11 @@
 var yo= require('yo-yo');
 var moment= require('moment');
-
+var translate= require('../translate');
 // preguntar si window.intl  esta definido oh no. para no tener problemas a la hora de visualizar en safary
 if(!window.Intl){
   window.Intl= require('intl');
-  require('intl/locale/jsonp/en-US.js')
-  require('intl/locale/jsonp/es.js')
+  require('intl/locale-data/jsonp/en-US.js')
+  require('intl/locale-data/jsonp/es.js')
 }
 
 
@@ -51,7 +51,7 @@ module.exports= function pictureCard(pic){
             <img src="${picture.user.avatar}" class="avatar"/>
             <span class="username">${picture.user.username}</span>
           </a>
-          <small class="right time">${rf.format(picture.createdAt)}</small>
+          <small class="right time">${translate.date.format(picture.createdAt)}</small>
           <p>
             <a href="#" class="left" onclick=${like.bind(null,true)}>
               <i class="fa fa-heart-o" aria-hidden="true"></i>
@@ -59,7 +59,7 @@ module.exports= function pictureCard(pic){
             <a href="#" class="left" onclick=${like.bind(null,false)}>
               <i class="fa fa-heart" aria-hidden="true"></i>
             </a>
-            <span class="left likes">${picture.likes} Me gusta</span>
+            <span class="left likes">${translate.message('likes',{likes: picture.likes})}</span>
           </p>
         </div>
       </div>`
@@ -75,7 +75,7 @@ module.exports= function pictureCard(pic){
     var newEL= render(pic);
     yo.update(el, newEL);
     return false;
-  }
+    }
 /*
   function dislike(){
     pic.liked= false;
@@ -85,6 +85,6 @@ module.exports= function pictureCard(pic){
     return false;
   }
 */
-  el= render(pic);
+  el = render(pic);
   return el;
 }

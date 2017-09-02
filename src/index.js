@@ -10,6 +10,7 @@ var page= require('page');
 require('./homepage');
 require('./signup');
 require('./signin');
+require('./footer');
 
 /*
 var yo= require("yo-yo");
