@@ -28,11 +28,23 @@ gulp.task('assets', function(){
 
 //creamos una funcion para poder compilar
 function compile(watch){
-  var bundle= watchify(browserify('./src/index.js'));
+  var bundle= browserify('./src/index.js');
+
+
+
+    if(watch){
+      bundle=watchify(bundle);
+      //se utilizara el metodo on y el evento update
+      // la funcion se llamara cada cuendo haya cambios
+      bundle.on('update', function(){
+        console.log("--> Bundling....");
+        rebundle();
+      })
+    }
 
   function rebundle(){
     bundle
-      .transform(babel, {presets: ["es2015"]})
+      .transform(babel, {presets: ["es2015"], plugins:['syntax-async-functions','transform-regenerator'] })
       .bundle()
       .on('error', function(err){
         console.log(err);
@@ -44,14 +56,6 @@ function compile(watch){
       .pipe(gulp.dest('public'));
   }
 
-  if(watch){
-    //se utilizara el metodo on y el evento update
-    // la funcion se llamara cada cuendo haya cambios
-    bundle.on('update', function(){
-      console.log("--> Bundling....");
-      rebundle();
-    })
-  }
   //lo llamara por primera vez
   rebundle();
 }

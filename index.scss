@@ -73,6 +73,7 @@ $avatar-size: 40px;
 }
 //.signup-box
 .platzigram{
+  color: blue;
   font-size: 42px;
   font-family: 'Oleo Script';
 }
@@ -114,5 +115,10 @@ $avatar-size: 40px;
 .card.liked{
   .fa-heart-o{
     display: none;
+  }
+}
+.form-upload{
+  span, button{
+    color: white;
   }
 }
