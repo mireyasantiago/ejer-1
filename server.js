@@ -6,7 +6,7 @@ app.set('view engine', 'pug');
 app.use(express.static('public'));
 // definiremos la ruta
 var port = process.env.PORT || 3000;
-/*la linea anterior es para ejecutar el proyecto en Heroku*/  
+/*la linea anterior es para ejecutar el proyecto en Heroku*/
 
 
 app.get('/', function(req, res){
@@ -55,8 +55,9 @@ app.get('/api/pictures', function(req,res, next){
 
 })
 
-
+/*
 app.listen(3000, function(err){
   if(err) return console.log("hubo un error"), process.exit(1);
     console.log("platzigram escuchando puerto 3000");
 })
+*/
